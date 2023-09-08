@@ -24,9 +24,10 @@ else
   exit
 fi
 
-archive_name="$new_name.tar.gz"
+archive_name=$new_name.xz
+
 echo "Archiving '$new_name' to '$archive_name'"
-tar -czvf "$archive_name" "$new_name"
+xz -k -T 0 $new_name
 
 echo "Moving '$archive_name' to '$base_path$new_name'"
 if [ -f $archive_name ]; then
